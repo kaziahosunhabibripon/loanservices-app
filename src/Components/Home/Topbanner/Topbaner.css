@@ -1,0 +1,31 @@
+.top-banner::after{
+    background-image: url('../../../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    opacity:0.7;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    height:100%;
+}
+.top-banner{
+    height:800px;
+}
+
+.caption-left{
+    bottom: 200px;
+    text-align: left;
+}
+.slider-div img {
+   height:700px;
+   background-size: cover;
+   background-repeat: no-repeat;
+   z-index: -1;
+  }
+ 
+
+ 
