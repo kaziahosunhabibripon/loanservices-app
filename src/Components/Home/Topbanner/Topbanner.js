@@ -1,16 +1,17 @@
 import React from 'react';
 import './Topbaner.css';
 import { Carousel } from 'react-bootstrap';
-
-import slider from '../../../images/slider.png';
+import all from '../../../images/slider2.jpg';
+import house from '../../../images/slider.jpg';
+import car from '../../../images/slider1.jpg';
 const Topbanner = () => {
     return (
-        <div className="row m-0 p-0 top-banner">
+        <section className="row m-0 p-0 top-banner">
             <Carousel className="col-md-12 col-sm-12 col-lg-12 p-0 m-0">
                 <Carousel.Item interval={1000}className="slider-div">
                     <img
                         className="d-block w-100"
-                        src={slider}
+                        src={car}
                         alt="First slide"
                         
                     />
@@ -23,7 +24,7 @@ const Topbanner = () => {
                 <Carousel.Item  className="slider-div">
                     <img
                         className="d-block w-100"
-                        src={slider}
+                        src={all}
                         alt="Second slide"
                     />
                     <Carousel.Caption className="caption-left">
@@ -35,7 +36,7 @@ const Topbanner = () => {
                 <Carousel.Item className="slider-div">
                     <img
                         className="d-block w-100"
-                        src={slider}
+                        src={house}
                         alt="Third slide"
                     />
                     <Carousel.Caption className="caption-left">
@@ -45,7 +46,7 @@ const Topbanner = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        </div>
+        </section>
 
     );
 };

@@ -10,21 +10,25 @@
     right: 0;
     position: absolute;
     z-index: -1;
-    height:100%;
 }
 .top-banner{
     height:800px;
+   
 }
 
 .caption-left{
-    bottom: 200px;
+    justify-content: center;
+    bottom: 400px;
     text-align: left;
 }
 .slider-div img {
-   height:700px;
+justify-content: center;
+align-items: center;
+   height:775px;
    background-size: cover;
    background-repeat: no-repeat;
-   z-index: -1;
+   
+   padding-top: 1em;
   }
  
 
