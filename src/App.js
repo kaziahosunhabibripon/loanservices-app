@@ -5,6 +5,8 @@ import {BrowserRouter as Router, Switch,Route } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import Login from './Components/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
+import ManageServices from './Components/Dashboard/ManageServices/ManageServices';
 function App() {
   return (
     <Router>
@@ -15,11 +17,16 @@ function App() {
         <Route path="/dashboard">
             <Dashboard></Dashboard>
         </Route>
+        <Route path="/makeAdmin">
+            <MakeAdmin></MakeAdmin>
+        </Route>
+        <Route path="/manageServices">
+            <ManageServices></ManageServices>
+        </Route>
         <Route exact path="/">
             <Home></Home>
         </Route>
       </Switch>
-      
     </Router>
   );
 }

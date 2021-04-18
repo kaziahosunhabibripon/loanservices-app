@@ -1,0 +1,28 @@
+.addServices{
+    border: 1px solid grey;
+    margin: 10px 5px;
+    padding: 5px;
+    justify-content:center;
+    align-items:center;
+    box-shadow: 1px 1px 10px 1px rgb(141, 91, 91);
+    border-radius: 10px;
+}
+.addServices label, input{
+    display:flex;
+    display:inline-block;
+    width:48%;
+    margin: 5px ;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    
+}
+.login-btn{
+    margin: 10px 25px;
+    padding: 8px 10px;
+    outline: none;
+    border:none;
+    background:rgba(173, 28, 28, 0.819);
+    border-radius: 5px;
+    color: whitesmoke;
+}
