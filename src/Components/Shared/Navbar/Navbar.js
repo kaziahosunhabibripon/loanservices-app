@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
+
 import './Navbar.css';
 const Navbar = () => {
+   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+   
     return (
         <section className="row m-0 p-0">
             <nav className="navbar navbar-expand-lg navbar-light">
                 <Link className="navbar-brand" to="/"><span className="text-primary">Loan</span><span className="text-success">Services</span> </Link>
+                <h4 className="text-info pt-1">{loggedInUser.name}</h4>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

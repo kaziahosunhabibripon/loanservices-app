@@ -4,11 +4,7 @@ import './LoanFunction.css';
 
 
 const LoanFunction = ({ service, date}) => {
-    const [order, setOrder] = useState();
-    const handleService = ()=>{
-    setOrder(service);
-    setOrder(service);
-   }
+    
    const [modalIsOpen,setIsOpen] = useState(false);
     function openModal() {
       setIsOpen(true);
