@@ -7,6 +7,7 @@ import Login from './Components/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 import ManageServices from './Components/Dashboard/ManageServices/ManageServices';
+import Book from './Components/Dashboard/Book/Book';
 function App() {
   return (
     <Router>
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/manageServices">
             <ManageServices></ManageServices>
+        </Route>
+        <Route path="/book">
+            <Book></Book>
         </Route>
         <Route exact path="/">
             <Home></Home>

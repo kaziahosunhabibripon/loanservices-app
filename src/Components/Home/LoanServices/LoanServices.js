@@ -26,8 +26,9 @@ const LoanServices = ({ handleDateChange, date }) => {
                 />
             </div>
             <h1 className="text-center text-info pb-2">Our Services</h1>
+            <h6 className="text-center text-secondary p-2">Fast services available to get loan easily.</h6>
             {
-                service.map(service => <LoanFunction key={service._id} service={service} date={service.date}></LoanFunction>)
+                service.map(service => <LoanFunction key={service._id} service={service} date={date}></LoanFunction>)
             }
         </div>
     );

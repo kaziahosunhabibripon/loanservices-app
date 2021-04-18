@@ -11,8 +11,8 @@ const LeftSidebar = (props) => {
         <div>
             <div className="left-sidebar">
                 <Link className="active" to="/"><FontAwesomeIcon icon={faHome} /> &nbsp; Home</Link>
-                <Link to="/dashboard"><FontAwesomeIcon icon={faShoppingCart} />&nbsp; Book</Link>
-                <Link to="/dashboard"><FontAwesomeIcon icon={faLuggageCart} />&nbsp; Booking List</Link>
+                <Link to="/book"><FontAwesomeIcon icon={faShoppingCart} />&nbsp; Book</Link>
+                <Link to="/bookingList"><FontAwesomeIcon icon={faLuggageCart} />&nbsp; Booking List</Link>
                 <Link to="/dashboard"><FontAwesomeIcon icon={faCommentAlt} />&nbsp; Review</Link>
                 <Link to="/dashboard"><FontAwesomeIcon icon={faUserShield} />&nbsp; Admin</Link>
                 <Link to="/dashboard"><FontAwesomeIcon icon={faServicestack} />&nbsp; Services List</Link>
