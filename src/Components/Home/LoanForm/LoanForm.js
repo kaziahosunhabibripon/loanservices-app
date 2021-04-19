@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
-import { useHistory } from 'react-router';
+
 import './LoanForm.css';
+
+import { loadStripe } from '@stripe/stripe-js';
+import { useParams } from 'react-router';
+
+
 const customStyles = {
     content: {
         top: '50%',
@@ -14,32 +19,39 @@ const customStyles = {
     }
 };
 Modal.setAppElement('#root');
-const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
-    
+
+const stripePromise = loadStripe('pk_test_51IeF0eDsrFiWGbX5mRIm3iCV2OTJRomPOryz0b24h2IrXtiveVKBy26J7B4SVfjDrBilkYm4kWnuLnWHgZhGW8Ok00FyfVh2pP');
+const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
+    const { name } = useParams();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.service = serviceName.name;
-        data.date = new Date();
-        fetch('http://localhost:5000/loanOrder',{
+        data.paymentSuccess = paymentSuccess
+        fetch('http://localhost:5000/loanOrder', {
             method: 'POST',
-            headers:{"content-type": "application/json"},
+            headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
         })
-        .then(res=> res.json())
-        .then(success=>{
-            if(success){
-                alert("Loan Application successfully submitted.");
-                closeModal();
-              
-            }
-        })  
+            .then(res => res.json())
+            .then(success => {
+                if (success) {
+                    alert("Loan Application successfully submitted.");
+                    closeModal();
+
+                }
+            })
         console.log(data);
         
-    };
 
+    };
+    const [serviceName, setServiceName] = useState([]);
+    useEffect   (() => {
+        fetch(`http://localhost:5000/service/${name}`)
+            .then(res => res.json())
+            .then(data => setServiceName(data[0]))
+    }, [name])
     return (
-        <div className="row ml-3 p-2">
-            <div className="col-md-12">
+        <div className="col-md-6 ml-3">
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -47,7 +59,8 @@ const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
                     contentLabel="Example Modal">
                     <form onSubmit={handleSubmit(onSubmit)} className="loan-form">
                         <h3 className="text-info text-center pb-2">{serviceName.name} </h3>
-                        
+                        <h3 className="text-info text-center pb-2"> {paymentSuccess}</h3>
+
                         <input name="name"{...register("name", { required: true })} placeholder="Enter your name" />
                         {errors.name && <span className="text-danger">This field is required</span>}
                         <input name="amount"{...register("amount", { required: true })} placeholder="Enter Loan Amount" />
@@ -74,10 +87,9 @@ const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
                                 {errors.weight && <span className="text-danger">This field is required</span>}
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-danger ml-1 p-2 m-0 p-0" > Confirm Application</button>
+                        <button type="submit" className="btn btn-danger mt-5"> Confirm Application</button>
                     </form>
                 </Modal>
-            </div>
         </div>
     );
 };

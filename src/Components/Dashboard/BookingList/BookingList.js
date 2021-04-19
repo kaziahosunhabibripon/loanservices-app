@@ -14,7 +14,7 @@ const BookingList = () => {
             <div className="col-md-2">
                 <LeftSidebar></LeftSidebar>
             </div>
-            <div className="col-md-9 m-3 p-5 shadow rounded" style={{border: "1px solid grey"}}>
+            <div className="col-md-9 m-3 p-5 shadow rounded" >
                 <table  >
                     <tbody>
                         <tr className="p-1">

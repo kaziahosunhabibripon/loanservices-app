@@ -1,14 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router';
-import { UserContext } from '../../../App';
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import LeftSidebar from '../../Shared/LeftSidebar/LeftSidebar';
 import LoanForm from '../LoanForm/LoanForm';
 
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import SimpleCardform from '../LoanForm/SimpleCardform';
+
+
+const stripePromise = loadStripe
+    ('pk_test_51IeF0eDsrFiWGbX5mRIm3iCV2OTJRomPOryz0b24h2IrXtiveVKBy26J7B4SVfjDrBilkYm4kWnuLnWHgZhGW8Ok00FyfVh2pP');
 const Book = () => {
     const { name } = useParams();
-    
-    
     const [serviceName, setServiceName] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/service/${name}`)
@@ -16,33 +19,21 @@ const Book = () => {
             .then(data => setServiceName(data[0]))
     }, [name])
 
-    const [modalIsOpen, setIsOpen] = useState(false);
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function closeModal() {
-        setIsOpen(false);
-    }
+    
     return (
         <div className="row m-0 p-0">
             <div className="col-md-2">
                 <LeftSidebar></LeftSidebar>
             </div>
-           
-            <div className="col-md-10 mt-2 p-1">
-                <div className='col-md-4 my-1'>
-                    <div className="card card-part shadow rounded">
-                        <h4 className="text-uppercase text-center text-success pt-2">{serviceName.name}</h4>
-                        <img src={serviceName.imageUrl} className="card-img-top service-image" alt="img" />
-                        <div className="card-body">
-                            <p className="card-text text-center text-info">{serviceName.description}</p>
-                        </div>
-                        <button onClick={openModal} className="login-btn" style={{ padding: "10px 25px", backgroundColor: "#6AAEE7", color: "InfoText" }}> Apply Loan </button>
-                        <LoanForm modalIsOpen={modalIsOpen} closeModal={closeModal} serviceName={serviceName}></LoanForm>
-                    </div>
+            <div className="col-md-6 mt-5">
+                <div className="card card-part shadow rounded">
+                    <h4 className="text-uppercase text-center text-success pt-2">{serviceName.name}</h4>
+                    <h5 className="text-center text-info"> Please pay loan application fees.</h5>
+                    <Elements stripe={stripePromise} serviceName={serviceName}>
+                        <SimpleCardform ></SimpleCardform>
+                    </Elements>  
                 </div>
-            </div>
+            </div>   
         </div>
     );
 };
