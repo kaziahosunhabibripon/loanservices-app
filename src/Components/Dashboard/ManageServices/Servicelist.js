@@ -4,7 +4,7 @@ import './Servicelist.css';
 
 const Servicelist = ({order}) => {
     const [orderStatus, setOrderStatus] = useState('');
-    const { age, name, email, gender, phone, service, weight, amount } = order;
+    const { age, name, email, gender, phone, service, weight, amount} = order;
     
     return (
         <div>

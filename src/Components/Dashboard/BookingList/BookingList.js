@@ -5,10 +5,11 @@ import BookingData from './BookingData';
 const BookingList = () => {
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/bookingList')
+        fetch('https://radiant-ravine-86194.herokuapp.com/bookingList')
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])
+    
     return (
         <div className="row m-lg m-0 p-0">
             <div className="col-md-2">

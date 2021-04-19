@@ -27,7 +27,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
     const onSubmit = data => {
         data.service = serviceName.name;
         data.paymentSuccess = paymentSuccess
-        fetch('http://localhost:5000/loanOrder', {
+        fetch('https://radiant-ravine-86194.herokuapp.com/loanOrder', {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
@@ -46,7 +46,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
     };
     const [serviceName, setServiceName] = useState([]);
     useEffect   (() => {
-        fetch(`http://localhost:5000/service/${name}`)
+        fetch(`https://radiant-ravine-86194.herokuapp.com/service/${name}`)
             .then(res => res.json())
             .then(data => setServiceName(data[0]))
     }, [name])

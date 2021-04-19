@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import LeftSidebar from '../../Shared/LeftSidebar/LeftSidebar';
-import LoanForm from '../LoanForm/LoanForm';
+
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -14,7 +14,7 @@ const Book = () => {
     const { name } = useParams();
     const [serviceName, setServiceName] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${name}`)
+        fetch(`https://radiant-ravine-86194.herokuapp.com/service/${name}`)
             .then(res => res.json())
             .then(data => setServiceName(data[0]))
     }, [name])

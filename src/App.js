@@ -10,6 +10,7 @@ import ManageServices from './Components/Dashboard/ManageServices/ManageServices
 import PrivateRoute from './Components/Home/PrivateRoute/PrivateRoute';
 import Book from './Components/Home/Book/Book';
 import BookingList from './Components/Dashboard/BookingList/BookingList';
+import Review from './Components/Dashboard/Review/Review';
 
 export const UserContext = createContext();
 function App() {
@@ -36,6 +37,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/bookingList">
             <BookingList></BookingList>
+          </PrivateRoute>
+          <PrivateRoute path="/review">
+            <Review></Review>
           </PrivateRoute>
           <Route path="/home">
             <Home></Home>
