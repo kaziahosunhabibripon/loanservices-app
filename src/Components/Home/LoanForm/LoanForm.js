@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
+import { useHistory } from 'react-router';
 import './LoanForm.css';
 const customStyles = {
     content: {
@@ -14,7 +15,7 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
-
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.service = serviceName.name;
@@ -29,6 +30,7 @@ const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
             if(success){
                 alert("Loan Application successfully submitted.");
                 closeModal();
+              
             }
         })  
         console.log(data);
@@ -37,7 +39,7 @@ const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
 
     return (
         <div className="row ml-3 p-2">
-            <div className="col-md-4">
+            <div className="col-md-12">
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -72,7 +74,7 @@ const LoanForm = ({ modalIsOpen, closeModal, serviceName}) => {
                                 {errors.weight && <span className="text-danger">This field is required</span>}
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-danger ml-1 p-2 m-0 p-0"> Confirm Application</button>
+                        <button type="submit" className="btn btn-danger ml-1 p-2 m-0 p-0" > Confirm Application</button>
                     </form>
                 </Modal>
             </div>

@@ -7,12 +7,9 @@ import Login from './Components/Home/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 import ManageServices from './Components/Dashboard/ManageServices/ManageServices';
-
 import PrivateRoute from './Components/Home/PrivateRoute/PrivateRoute';
-import LoanFunction from './Components/Home/LoanFunction/LoanFunction';
-import LoanForm from './Components/Home/LoanForm/LoanForm';
 import Book from './Components/Home/Book/Book';
-
+import BookingList from './Components/Dashboard/BookingList/BookingList';
 
 export const UserContext = createContext();
 function App() {
@@ -36,6 +33,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/book/:name">
             <Book></Book>
+          </PrivateRoute>
+          <PrivateRoute path="/bookingList">
+            <BookingList></BookingList>
           </PrivateRoute>
           <Route path="/home">
             <Home></Home>

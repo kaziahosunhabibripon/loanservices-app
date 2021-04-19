@@ -7,8 +7,8 @@ import LoanForm from '../LoanForm/LoanForm';
 
 const Book = () => {
     const { name } = useParams();
-    let history = useHistory();
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    
+    
     const [serviceName, setServiceName] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/service/${name}`)
@@ -29,10 +29,8 @@ const Book = () => {
             <div className="col-md-2">
                 <LeftSidebar></LeftSidebar>
             </div>
-            <div className="col-md-1">
-
-            </div>
-            <div className="col-md-8 mt-2 p-1">
+           
+            <div className="col-md-10 mt-2 p-1">
                 <div className='col-md-4 my-1'>
                     <div className="card card-part shadow rounded">
                         <h4 className="text-uppercase text-center text-success pt-2">{serviceName.name}</h4>
