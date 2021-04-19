@@ -2,11 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './LoanFunction.css';
 
-const LoanFunction = ({ service}) => {
+const LoanFunction = ({ service, date}) => {
     const history = useHistory();
     const handleAppointmentLoanName = (name) =>{
         history.push(`/book/${name}`);
-       
     }
 
     const{imageUrl,description,name} = service;
@@ -19,7 +18,7 @@ const LoanFunction = ({ service}) => {
                         <p className="card-text text-center text-info">{description}</p>         
                     </div>
                 </div>
-                <button onClick={()=>handleAppointmentLoanName(`${name}`)} className="login-btn" style={{margin:"10px 40%"}}> Get Loan </button>           
+                <button onClick={()=>handleAppointmentLoanName(name)} className="login-btn" style={{margin:"10px 40%"}}> Get Loan </button>           
             </div>
     );
 };

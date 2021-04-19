@@ -9,7 +9,7 @@ const Home = () => {
         setSelectedDate(date);
     }
     return (
-        <div>
+        <div className="row m-0 p-0 body">
             <Header> </Header>
             <LoanServices handleDateChange={handleDateChange} date={selectedDate}></LoanServices>
             <Footer></Footer>
