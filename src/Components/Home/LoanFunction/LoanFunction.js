@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import LoanForm from '../LoanForm/LoanForm';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './LoanFunction.css';
 
-
-const LoanFunction = ({ service, date}) => {
-    
-   const [modalIsOpen,setIsOpen] = useState(false);
-    function openModal() {
-      setIsOpen(true);
+const LoanFunction = ({ service}) => {
+    const history = useHistory();
+    const handleAppointmentLoanName = (name) =>{
+        history.push(`/book/${name}`);
+       
     }
 
-    function closeModal(){
-      setIsOpen(false);
-    }
     const{imageUrl,description,name} = service;
     return (
         <div className='col-md-4 my-1'>
@@ -23,8 +19,7 @@ const LoanFunction = ({ service, date}) => {
                         <p className="card-text text-center text-info">{description}</p>         
                     </div>
                 </div>
-                <button onClick={openModal} className="login-btn" style={{margin:"10px 40%"}}>Get loan</button>
-                <LoanForm modalIsOpen={modalIsOpen} closeModal={closeModal} service={service} date={date}></LoanForm>
+                <button onClick={()=>handleAppointmentLoanName(`${name}`)} className="login-btn" style={{margin:"10px 40%"}}> Get Loan </button>           
             </div>
     );
 };

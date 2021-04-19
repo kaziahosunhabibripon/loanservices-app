@@ -7,7 +7,12 @@ import Login from './Components/Home/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 import ManageServices from './Components/Dashboard/ManageServices/ManageServices';
-import Book from './Components/Dashboard/Book/Book';
+
+import PrivateRoute from './Components/Home/PrivateRoute/PrivateRoute';
+import LoanFunction from './Components/Home/LoanFunction/LoanFunction';
+import LoanForm from './Components/Home/LoanForm/LoanForm';
+import Book from './Components/Home/Book/Book';
+
 
 export const UserContext = createContext();
 function App() {
@@ -20,18 +25,18 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
-          </Route>
-          <Route path="/makeAdmin">
+          </PrivateRoute>
+          <PrivateRoute path="/makeAdmin">
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path="/manageServices">
+          </PrivateRoute>
+          <PrivateRoute path="/manageServices">
             <ManageServices></ManageServices>
-          </Route>
-          <Route path="/book">
+          </PrivateRoute>
+          <PrivateRoute path="/book/:name">
             <Book></Book>
-          </Route>
+          </PrivateRoute>
           <Route path="/home">
             <Home></Home>
           </Route>

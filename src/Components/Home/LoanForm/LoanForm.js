@@ -13,20 +13,25 @@ const customStyles = {
     }
 };
 Modal.setAppElement('#root');
-const LoanForm = ({ modalIsOpen, closeModal,service,date }) => {
+const LoanForm = ({ modalIsOpen, closeModal,name,date }) => {
    
     const { register, handleSubmit, formState: { errors }, loanData } = useForm();
     const onSubmit = data => {
         const loanData = {
-            service: service.name,
-            date: date.toDateString()
-            
-
+            service: data.name,
+            date: data.date
         }
         console.log(data, loanData);
         closeModal();
     };
+//    const [modalIsOpen,setIsOpen] = useState(false);
+//     function openModal() {
+//       setIsOpen(true);
+//     }
 
+//     function closeModal(){
+//       setIsOpen(false);
+//     }
     return (
         <div className="row m-0 p-2">
             <Modal 
@@ -35,8 +40,8 @@ const LoanForm = ({ modalIsOpen, closeModal,service,date }) => {
                 style={customStyles}
                 contentLabel="Example Modal">
                 <form onSubmit={handleSubmit(onSubmit)} className="loan-form">
-                <h3 className="text-info text-center pb-2"> {service.name}</h3>
-                <h6 className="text-secondary text-center"> {date.toDateString()}</h6>
+                <h3 className="text-info text-center pb-2"> </h3>
+                <h6 className="text-secondary text-center"> {date}</h6>
                     <input name="name"{...register("name", { required: true })} placeholder="Enter your name" />
                     {errors.name && <span className="text-danger">This field is required</span>}
                     <input name="amount"{...register("amount", { required: true })} placeholder="Enter Loan Amount" />
