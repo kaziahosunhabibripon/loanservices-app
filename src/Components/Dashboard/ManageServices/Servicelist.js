@@ -18,7 +18,7 @@ const Servicelist = ({order}) => {
     }
     const handleUpdateService = (_id)=>{
         fetch(`http://localhost:5000/bookingList/${_id}`)
-        fetch(`https://evening-tor-92672.herokuapp.com/bookingList/${_id}`)
+        fetch(`https://dry-tor-15966.herokuapp.com/bookingList/${_id}`)
         .then(result =>result.json())
         .then(data =>{
             const update = document.getElementById('update');
