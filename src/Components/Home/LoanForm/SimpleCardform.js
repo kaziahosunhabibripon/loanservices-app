@@ -28,11 +28,11 @@ const SimpleCardform = () => {
         if (error) {
             setPaymentError(error.message);
             setPaymentSuccess(null);
-            console.log(error.message);
+          
         } else {
             setPaymentSuccess(paymentMethod.id);
             setPaymentError(null);
-            console.log(paymentMethod);
+            
         }
     };
     const [modalIsOpen, setIsOpen] = useState(false);

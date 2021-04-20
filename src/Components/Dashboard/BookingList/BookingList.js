@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
 import LeftSidebar from '../../Shared/LeftSidebar/LeftSidebar';
 import BookingData from './BookingData';
 
 const BookingList = () => {
     const [order, setOrder] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(() => {
-        fetch('https://radiant-ravine-86194.herokuapp.com/bookingList')
+        fetch('https://radiant-ravine-86194.herokuapp.com/bookingList?email='+loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
 
@@ -6,6 +6,7 @@ import './LoanForm.css';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router';
+import { UserContext } from '../../../App';
 
 
 const customStyles = {
@@ -23,8 +24,10 @@ Modal.setAppElement('#root');
 const stripePromise = loadStripe('pk_test_51IeF0eDsrFiWGbX5mRIm3iCV2OTJRomPOryz0b24h2IrXtiveVKBy26J7B4SVfjDrBilkYm4kWnuLnWHgZhGW8Ok00FyfVh2pP');
 const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
     const { name } = useParams();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        
         data.service = serviceName.name;
         data.paymentSuccess = paymentSuccess
         fetch('https://radiant-ravine-86194.herokuapp.com/loanOrder', {
@@ -60,6 +63,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
                     <form onSubmit={handleSubmit(onSubmit)} className="loan-form">
                         <h3 className="text-info text-center pb-2">{serviceName.name} </h3>
                         <h3 className="text-info text-center pb-2"> {paymentSuccess}</h3>
+                        <h3 className="text-info text-center pb-2"> {loggedInUser}</h3>
 
                         <input name="name"{...register("name", { required: true })} placeholder="Enter your name" />
                         {errors.name && <span className="text-danger">This field is required</span>}
