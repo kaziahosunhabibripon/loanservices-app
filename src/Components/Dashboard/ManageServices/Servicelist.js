@@ -17,7 +17,28 @@ const Servicelist = ({order}) => {
         
     }
     const handleUpdateService = (_id)=>{
-        
+        fetch(`http://localhost:5000/bookingList/${_id}`)
+        .then(result =>result.json())
+        .then(data =>{
+            const update = document.getElementById('update');
+            update.innerText = `
+            <h3>Status: ${data._id} </h3>
+            `;
+        })
+    }
+    const updateStaus = (_id) =>{
+        const update = document.getElementById('update').value;
+
+        fetch(`http://localhost:5000/update/${_id}`,{
+            method:"PATCH",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(update)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log('update');
+        })
+
     }
     return (
         <div>
@@ -29,7 +50,7 @@ const Servicelist = ({order}) => {
                     <span > {amount}</span> <span >{weight}</span> <span>{orderStatus}</span>
                    
                     <span>
-                        <select name="orderStatus" id="" onChange={(e)=>{
+                        <select name="orderStatus" id="update" onChange={(e)=>{
                             const status= e.target.value;
                             setOrderStatus(status);
                         }}>
@@ -38,8 +59,9 @@ const Servicelist = ({order}) => {
                             <option value="done"> Done</option>
                         </select>
                     </span>
-                    <button onClick={() =>handleUpdateService(_id)} className="login-btn"> Update</button>
+                    <button onClick={(e) =>handleUpdateService(_id)} className="login-btn"> Update</button>
                     <button onClick={() =>handleDelateService(_id)} className="login-btn"> Delete</button>
+                    <button className="btn btn-danger" onClick={(e)=>updateStaus(order,e)}>Send</button>
                 </li>
             </ul>
         </div>

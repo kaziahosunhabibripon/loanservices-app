@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../../../App';
 import LeftSidebar from '../../Shared/LeftSidebar/LeftSidebar';
 import AddServices from '../AddServices/AddServices';
 
@@ -6,6 +7,7 @@ import AddServices from '../AddServices/AddServices';
 
 
 const Dashboard = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <div className="row m-0 p-0">
             <div className="col-md-2">

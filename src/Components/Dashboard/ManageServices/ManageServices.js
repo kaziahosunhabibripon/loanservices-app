@@ -41,7 +41,7 @@ const ManageServices = () => {
                 {
                     order.map(order => <Servicelist key={order._id} order={order}></Servicelist>)
                 }
-               <button onClick={()=>handleChangeInput(order)}   className="login-btn float-right"> Send</button> 
+                
             </div>
         </div>
     );
