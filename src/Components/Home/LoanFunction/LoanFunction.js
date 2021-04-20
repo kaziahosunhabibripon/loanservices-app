@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './LoanFunction.css';
 
-const LoanFunction = ({ service, date}) => {
+const LoanFunction = ({ service}) => {
     const history = useHistory();
     const handleAppointmentLoanName = (name) =>{
         history.push(`/book/${name}`);

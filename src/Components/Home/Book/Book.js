@@ -29,7 +29,7 @@ const Book = () => {
                 <div className="card card-part shadow rounded">
                     <h4 className="text-uppercase text-center text-success pt-2">{serviceName.name}</h4>
                     <h5 className="text-center text-info"> Please pay loan application fees.</h5>
-                    <Elements stripe={stripePromise} serviceName={serviceName}>
+                    <Elements stripe={stripePromise} serviceName={serviceName.name}>
                         <SimpleCardform ></SimpleCardform>
                     </Elements>  
                 </div>

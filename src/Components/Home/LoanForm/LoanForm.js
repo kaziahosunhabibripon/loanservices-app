@@ -43,7 +43,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
 
                 }
             })
-        console.log(data);
+       
         
 
     };
@@ -63,7 +63,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
                     <form onSubmit={handleSubmit(onSubmit)} className="loan-form">
                         <h3 className="text-info text-center pb-2">{serviceName.name} </h3>
                         <h3 className="text-info text-center pb-2"> {paymentSuccess}</h3>
-                        <h3 className="text-info text-center pb-2"> {loggedInUser}</h3>
+                        
 
                         <input name="name"{...register("name", { required: true })} placeholder="Enter your name" />
                         {errors.name && <span className="text-danger">This field is required</span>}

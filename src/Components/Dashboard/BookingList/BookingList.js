@@ -7,7 +7,13 @@ const BookingList = () => {
     const [order, setOrder] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(() => {
-        fetch('https://radiant-ravine-86194.herokuapp.com/bookingList?email='+loggedInUser.email)
+        fetch('https://radiant-ravine-86194.herokuapp.com/bookingList?email='+loggedInUser.email,{
+            method: 'GET',
+            headers: {'content-type': 'application/json',
+            authorization: `Bearer ${sessionStorage.getItem('token')}`
+        }
+
+        })
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])
