@@ -5,7 +5,7 @@ import Servicelist from './Servicelist';
 const ManageServices = () => {
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch('https://radiant-ravine-86194.herokuapp.com/bookingList')
+        fetch('https://dry-tor-15966.herokuapp.com/bookingList')
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])

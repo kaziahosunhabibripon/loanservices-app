@@ -30,7 +30,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
         
         data.service = serviceName.name;
         data.paymentSuccess = paymentSuccess
-        fetch('https://radiant-ravine-86194.herokuapp.com/loanOrder', {
+        fetch('https://dry-tor-15966.herokuapp.com/loanOrder', {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
@@ -49,7 +49,7 @@ const LoanForm = ({ modalIsOpen, closeModal, paymentSuccess }) => {
     };
     const [serviceName, setServiceName] = useState([]);
     useEffect   (() => {
-        fetch(`https://radiant-ravine-86194.herokuapp.com/service/${name}`)
+        fetch(`https://dry-tor-15966.herokuapp.com/service/${name}`)
             .then(res => res.json())
             .then(data => setServiceName(data[0]))
     }, [name])
