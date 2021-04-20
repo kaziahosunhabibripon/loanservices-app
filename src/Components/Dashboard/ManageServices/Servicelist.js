@@ -7,7 +7,7 @@ const Servicelist = ({order}) => {
     const { age, name, email, gender, phone, service, weight, amount, _id} = order;
     const [orderDelete, setOrderDelete] = useState('');
     const handleDelateService = (_id)=>{
-        fetch(`http://localhost:5000/delete/${_id}`,{
+        fetch(`https://evening-tor-92672.herokuapp.com/delete/${_id}`,{
             method:"DELETE"
         })
         .then(res=> res.json())
@@ -17,7 +17,7 @@ const Servicelist = ({order}) => {
         
     }
     const handleUpdateService = (_id)=>{
-        fetch(`http://localhost:5000/bookingList/${_id}`)
+        fetch(`https://evening-tor-92672.herokuapp.com/bookingList/${_id}`)
         .then(result =>result.json())
         .then(data =>{
             const update = document.getElementById('update');
@@ -29,7 +29,7 @@ const Servicelist = ({order}) => {
     const updateStaus = (_id) =>{
         const update = document.getElementById('update').value;
 
-        fetch(`http://localhost:5000/update/${_id}`,{
+        fetch(`https://evening-tor-92672.herokuapp.com/update/${_id}`,{
             method:"PATCH",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(update)

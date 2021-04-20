@@ -12,7 +12,7 @@ const AddServices = () => {
             description: data.description,
             imageUrl: imageUrl
         };
-        const url = ` https://radiant-ravine-86194.herokuapp.com/addService`;
+        const url = ` https://evening-tor-92672.herokuapp.com/addService`;
 
         fetch(url, {
             method: 'POST',

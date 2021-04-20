@@ -14,7 +14,7 @@ const Book = () => {
     const { name } = useParams();
     const [serviceName, setServiceName] = useState([]);
     useEffect(() => {
-        fetch(`https://radiant-ravine-86194.herokuapp.com/service/${name}`)
+        fetch(`https://evening-tor-92672.herokuapp.com/service/${name}`)
             .then(res => res.json())
             .then(data => setServiceName(data[0]))
     }, [name])

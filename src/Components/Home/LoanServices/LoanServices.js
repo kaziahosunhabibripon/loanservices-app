@@ -10,12 +10,12 @@ const LoanServices = ({ handleDateChange, date }) => {
     const [reviewUser, setReview] = useState([]);
 
     useEffect(() => {
-        fetch('https://radiant-ravine-86194.herokuapp.com/service')
+        fetch('https://evening-tor-92672.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setService(data));
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/reviewUser')
+        fetch('https://evening-tor-92672.herokuapp.com/reviewUser')
             .then(res => res.json())
             .then(data => setReview(data));
     }, [])
